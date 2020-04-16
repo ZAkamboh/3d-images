@@ -1,10 +1,10 @@
 import * as THREE from "three";
-
 import React from "react";
 import React3 from "react-three-renderer";
 import ObjectModel from 'react-three-renderer-objects';
-import exampleModel from "../../assets/TechnicLEGO_CAR_1.obj";
-import exampleTexture from "../../assets/TechnicLEGO_CAR_1.mtl";
+import exampleModel from "../../assets/ch.obj";
+import exampleTexture from "../../assets/ch.mtl";
+import Comptwo from "../comptwo"
 
 class DemoScene extends React.Component {
 
@@ -90,18 +90,23 @@ class DemoScene extends React.Component {
     });
   }
 
+
+
   render() {
 
     let width = window.innerWidth;
     let height = window.innerHeight;
 
     return (
-      <React3
+      <div className="container">
+      <div className="row" style={{backgroundColor:"grey"}}>
+        <div className="col-sm">
+        <React3
         mainCamera="camera"
         antialias
         shadowMapEnabled
-        width={width}
-        height={height}
+        width={width/3}
+        height={height/2}
         alpha={true}
         onAnimate={this.updateScene}
       >
@@ -189,6 +194,27 @@ class DemoScene extends React.Component {
           </group>
         </scene>
       </React3>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div className="col-sm" style={{backgroundColor:"red"}}>
+          <Comptwo/>
+        </div>
+        <div className="col-sm" style={{backgroundColor:"green"}}>
+          One of three columns
+        </div>
+      </div>
+    </div>
     );
   }
 }
