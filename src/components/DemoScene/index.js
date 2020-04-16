@@ -13,7 +13,8 @@ class DemoScene extends React.Component {
     this.state = {
       cameraPosition: new THREE.Vector3(0, 300, 750),
       groupRotation: new THREE.Euler(0, 0, 0),
-      scene: {}
+      scene: {},
+      color:"green"
     };
   }
 
@@ -90,7 +91,9 @@ class DemoScene extends React.Component {
     });
   }
 
-
+color(colors){
+  this.setState({color:colors})
+}
 
   render() {
 
@@ -124,7 +127,7 @@ class DemoScene extends React.Component {
           <group>
             <spotLight
               key={`Light 1`}
-              color={0xffffff}
+              color={this.state.color}
               position={new THREE.Vector3(0, 300, 0)}
               lookAt={new THREE.Vector3(0, 0, 0)}
               castShadow
@@ -136,7 +139,7 @@ class DemoScene extends React.Component {
 
             <directionalLight
               key={`Light 2`}
-              color={0xffffff}
+              color={this.state.color}
               position={new THREE.Vector3(0, 500, 100)}
               lookAt={new THREE.Vector3(0, 0, 0)}
               intensity={0.5}
@@ -144,7 +147,7 @@ class DemoScene extends React.Component {
 
             <spotLight
               key={`Light 3`}
-              color={0xffffff}
+              color={this.state.color}
               position={new THREE.Vector3(0, 100, 2000)}
               lookAt={new THREE.Vector3(0, 0, 0)}
               intensity={0.35}
@@ -152,7 +155,7 @@ class DemoScene extends React.Component {
 
             <spotLight
               key={`Light 4`}
-              color={0xffffff}
+              color={this.state.color}
               position={new THREE.Vector3(-500, 0, 500)}
               lookAt={new THREE.Vector3(0, 0, 0)}
               intensity={0.1}
@@ -160,7 +163,7 @@ class DemoScene extends React.Component {
 
             <spotLight
               key={`Light 5`}
-              color={0xffffff}
+              color={this.state.color}
               position={new THREE.Vector3(500, 0, 500)}
               lookAt={new THREE.Vector3(0, 0, 0)}
               intensity={0.1}
@@ -168,7 +171,7 @@ class DemoScene extends React.Component {
 
             <spotLight
               key={`Light 6`}
-              color={0xffd0b1}
+              color={this.state.color}
               position={new THREE.Vector3(-500, 450, 500)}
               lookAt={new THREE.Vector3(0, 0, 0)}
               intensity={0.375}
@@ -176,7 +179,7 @@ class DemoScene extends React.Component {
 
             <spotLight
               key={`Light 7`}
-              color={0x80ecff}
+              color={this.state.color}
               position={new THREE.Vector3(500, 450, 500)}
               lookAt={new THREE.Vector3(0, 0, 0)}
               intensity={0.375}
@@ -193,7 +196,14 @@ class DemoScene extends React.Component {
             />
           </group>
         </scene>
+     
       </React3>
+  
+      <button onClick={this.color.bind(this,"red")} style={{ display: "row",height:"7%",width:"5%",backgroundColor:"red"  }}></button>
+<button onClick={this.color.bind(this,"blue")} style={{ display: "row",height:"7%",width:"5%",backgroundColor:"blue"  }}></button>
+<button onClick={this.color.bind(this,"black")} style={{ display: "row",height:"7%",width:"5%",backgroundColor:"black"  }}></button>
+<button onClick={this.color.bind(this,"green")} style={{ display: "row",height:"7%",width:"5%",backgroundColor:"green"  }}></button>
+<button onClick={this.color.bind(this,"red")} style={{ display: "row",height:"7%",width:"5%",backgroundColor:"red"  }}></button>
 
         </div>
 
@@ -207,7 +217,7 @@ class DemoScene extends React.Component {
 
 
 
-        <div className="col-sm" style={{backgroundColor:"red"}}>
+        <div className="col-sm" >
           <Comptwo/>
         </div>
         <div className="col-sm" style={{backgroundColor:"green"}}>

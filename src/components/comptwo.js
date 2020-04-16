@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 import React from "react";
-
+import "./comptwo.css"
 
 class Comptwo extends React.Component {
 
